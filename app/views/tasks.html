@@ -1,0 +1,52 @@
+{% extends 'shared/layout.html' %}
+{% block content_ %}
+<!-- DataTables Example -->
+        <div class="card mb-3 col-md-12">
+          <div class="card-header"> <b> Chamados </b> </div>
+          <div class="card-body">
+            <div class="table-responsive">
+              <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                  <tr>
+                    <th>ID</th>
+                    <th>Titulo</th>
+                    <th>Usuario</th>
+                    <th>Status</th>
+                    <th>Data da Criação</th>
+                    <th>Data da Atualização</th>
+                    <th>Ação</th>
+                  </tr>
+                </thead>
+                <tfoot>
+                  <tr>
+                    <th>ID</th>
+                    <th>Titulo</th>
+                    <th>Usuario</th>
+                    <th>Status</th>
+                    <th>Data da Criação</th>
+                    <th>Data da Atualização</th>
+                    <th>Ação</th>
+                  </tr>
+                </tfoot>
+                <tbody>
+				{% for i in tasks %}
+					<tr>
+					  <td>{{i.id}}</td>
+					  <td>{{i.title}}</td>
+					  <td>{{i.users.name}}</td>
+					  <td>{{i.status.name}}</td>
+					  <td>{{i.created_at|date("m/d/Y H:i:s")}}</td>
+					  <td>{{i.updated_at|date("m/d/Y H:i:s")}}</td>
+					  <td>
+            <a href="{{baseUrl}}/tasks/{{ i.id }}">
+              <i class="fas fa fa-eye"></i>
+            </a>
+					  </td>
+					</tr>
+				{% endfor %}          
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+{% endblock %}

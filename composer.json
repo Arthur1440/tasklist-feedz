@@ -1,0 +1,18 @@
+{
+  "require": {
+    "slim/slim": "2.4.3",
+    "slim/views": "0.1.2",
+    "twig/twig": "v1.16.2",
+    "illuminate/database": "v4.2.9",
+    "illuminate/validation": "*",
+    "illuminate/filesystem": "*",
+    "illuminate/translation": "*",
+    "itsgoingd/slim-services": "dev-master"
+  },
+  "autoload": {
+    "classmap": [
+      "app/controllers",
+      "app/models"
+    ]
+  }
+}

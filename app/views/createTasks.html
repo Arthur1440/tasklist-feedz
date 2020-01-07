@@ -1,0 +1,66 @@
+{% extends 'shared/layout.html' %}
+{% block content_ %}
+<!-- DataTables Example -->
+<div class="card mb-3 col-md-12">
+  <div class="card-header"> <b> Criar um chamado </b> </div>
+  <div class="card-body">
+    <form action="{{baseUrl}}/tasks/save" class="form" id="usuarios-edit-form" method="POST">
+
+        <!-- Primeiro Nome -->
+        <div class="form-group row">
+            <label class="col-sm-2 col-form-label"></label>
+            <div class="col-sm-8">
+                <input type="text" class="form-control" name="title" id="title" required="required" placeholder="titulo" value="">
+                <span class="messages"></span>
+            </div>
+        </div>
+
+        <!-- status -->
+        <div class="form-group row">
+            <label class="col-sm-2 col-form-label"></label>
+            <div class="col-sm-8">
+                <select id="status_id" required="required" name="status_id" class="form-control form-control-default">
+                    <option value="" disabled selected>Status</option>
+                    {% for s in status %}
+                        <option value="{{s.id}}" >{{s.name}}</option>
+                    {% endfor %}
+
+                </select>
+            </div>
+        </div>
+
+        <!-- usuario -->
+        <div class="form-group row">
+            <label class="col-sm-2 col-form-label"></label>
+            <div class="col-sm-8">
+                <select id="users_id" required="required" name="users_id" class="form-control form-control-default">
+                    <option value="" disabled selected>Usuario</option>
+                    {% for u in users %}
+                        <option value="{{u.id}}" >{{u.name}}</option>
+                    {% endfor %}
+                </select>
+            </div>
+        </div>
+
+        <!-- description -->
+        <div class="form-group row">
+            <label class="col-sm-2 col-form-label"></label>
+            <div class="col-sm-8">
+                <textarea class="form-control" name="description" id="description" required="required" placeholder="Escreva aqui a descrição..." ></textarea>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label class="col-sm-2"></label>
+            <div class="col-sm-8 text-right">
+                <!-- Envia Form -->
+                <button type="submit" class="btn btn-primary m-b-0"title="Salvar">
+                  Salvar
+                </button>
+            </div>
+        </div>
+
+    </form>
+  </div>
+</div>
+{% endblock %}
